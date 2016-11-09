@@ -28,11 +28,11 @@ $n$ = 1, $log(n+1)$ = $log2$ = 1, $h$ = $log(n+1)$ = 1
 
 ##### Inductive Hypothesis #####
 	
-Assume that the theorem is true for heights <= $k$ .
+Assume that the theorem is **true** for heights <= $k$ .
 	
 ##### Inductive Step #####
 	
-Prove that the inductive hypothhesis is true for height $k + 1$
+Prove that the inductive hypothhesis is **true** for height $k + 1$
 	
 Let $h = k + 1$ . 
 Note that the theorem is **true** (by the inductive hypothesis) of the subtrees of the root, since they have height $k$
