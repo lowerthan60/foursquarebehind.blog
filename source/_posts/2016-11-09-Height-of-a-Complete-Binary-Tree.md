@@ -38,7 +38,7 @@ Let $h = k + 1$ .
 Note that the theorem is **true** (by the inductive hypothesis) of the subtrees of the root, since they have height $k$
 $n = 1 + n$<sub>left</sub> $+$ $n$<sub>right</sub> 
 &nbsp;&nbsp;&nbsp;&nbsp;$= 1$ $+$ $2n$<sub>left</sub> .................................. *since the tree is complete*
-**BUT**&nbsp;&nbsp; $k = log2(n$<sub>left</sub> $+$ $1)$ .................................. *by the inductive hypothesis*	
+**BUT**&nbsp;&nbsp; $k = log_2(n$<sub>left</sub> $+$ $1)$ .................................. *by the inductive hypothesis*	
 **SO**&nbsp;&nbsp;&nbsp;&nbsp; $n$<sub>left</sub> $= 2^k - 1$
 **THEN** $n = 1 + 2(2^k - 1)$
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$n = 2^{k + 1} - 1$
