@@ -45,15 +45,19 @@ So $k$ is the height of the direct subtree of the Complete Binary Tree with $n$ 
 so $k = log_2(n$<sub>left</sub> $+$ $1)$ --------- *by the inductive hypothesis*
  
 Note that the theorem is **true** (by the inductive hypothesis) of the subtrees of the root, since they have height $k$
-$n = 1 + n$<sub>left</sub> $+$ $n$<sub>right</sub> 
-&nbsp;&nbsp;&nbsp;&nbsp;$= 1$ $+$ $2n$<sub>left</sub> .................................. *since the tree is complete*
-**BUT**&nbsp;&nbsp; $k = log_2(n$<sub>left</sub> $+$ $1)$ .................................. *by the inductive hypothesis*	
-**SO**&nbsp;&nbsp;&nbsp;&nbsp; $n$<sub>left</sub> $= 2^k - 1$
-**THEN** $n = 1 + 2(2^k - 1)$
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$n = 2^{k + 1} - 1$
-$log_2(n+1) = log_2(2^{k + 1})$
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ = k + 1$
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ = h$
+
+| &nbsp;   | &nbsp;              | &nbsp; | &nbsp;                                         | &nbsp; |
+| :---     | ---:                | :---:  | :---                                           | ---: |
+| &nbsp;   | $n$                 | $=$    | $1 + n$<sub>left</sub> $+$ $n$<sub>right</sub> | &nbsp; |
+| &nbsp;   | &nbsp;              | $=$    | $1 + 2n$<sub>left</sub>                        | *since the tree is complete* |
+| **BUT**  | $k$                 | $=$    | $log_2(n$<sub>left</sub> $+$ $1)$              | *by the inductive hypothesis* |
+| **SO**   | $n$<sub>left</sub>  | $=$    | $2^k - 1$                                      | &nbsp; |
+| **THEN** | $n$                 | $=$    | $1 + 2(2^k - 1)$                               | &nbsp; |
+| &nbsp;   | &nbsp;              | $=$    | $2^{k + 1} - 1$                                | &nbsp; |
+| &nbsp;   | $log_2(n+1)$        | $=$    | $log_2(2^{k + 1})$                             | &nbsp; |
+| &nbsp;   | &nbsp;              | $=$    | $k + 1$                                        | &nbsp; |
+| &nbsp;   | &nbsp;              | $=$    | $h$                                            | &nbsp; |
+
 
 
 Thus, the inductive hypothesis is **true** for height $k + 1$ and, hence (by induction), **true** for all heights. A ccomplete binary tree of $n$ nodes has height $log_2(n+1)$ .
