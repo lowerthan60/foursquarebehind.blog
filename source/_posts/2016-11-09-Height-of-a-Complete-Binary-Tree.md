@@ -3,6 +3,7 @@ title: Height of a Complete Binary Tree
 date: 2016-11-09 00:28:17
 tags:
 	Algorithm
+	Tree
 ---
 
 The height of a complete binary tree is $O(log n)$
