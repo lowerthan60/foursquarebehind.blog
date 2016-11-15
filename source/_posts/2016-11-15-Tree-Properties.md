@@ -1,8 +1,8 @@
 ---
 title: Tree Properties
 tags:
-	Algorithm
-	Tree
+- Algorithm
+- Tree
 ---
 
 
