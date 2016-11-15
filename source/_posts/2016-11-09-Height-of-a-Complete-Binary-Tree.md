@@ -62,3 +62,6 @@ Note that the theorem is **true** (by the inductive hypothesis) of the subtrees 
 
 
 Thus, the inductive hypothesis is **true** for height $k + 1$ and, hence (by induction), **true** for all heights. A ccomplete binary tree of $n$ nodes has height $log_2(n+1)$ .
+
+##### Reference ######
+* http://www.dgp.toronto.edu/people/JamesStewart/378notes/09treeHeight/

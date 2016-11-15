@@ -18,6 +18,6 @@ E.g. In Figure 1, the tree has a height of 3, node **G** has a depth of 2, node 
 | {% asset_img tree_properties_1.jpg " " " "%} | {% asset_img tree_height_depth.png " " "Figure 2"%} |
 
 
-Refrences:
+##### References ######
 * http://stackoverflow.com/questions/2603692/what-is-the-difference-between-tree-depth-and-height
 * https://www.topcoder.com/community/data-science/data-science-tutorials/an-introduction-to-binary-search-and-red-black-trees/
