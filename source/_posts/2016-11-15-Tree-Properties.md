@@ -15,7 +15,7 @@ E.g. In Figure 1, the tree has a height of 3, node **G** has a depth of 2, node 
 
 | &nbsp; | &nbsp; |
 | :---   | ---:   | 
-| {% asset_img tree_properties_1.jpg " " " "%} | {% asset_img tree_height_depth.png " " "Figure 2"%} |
+| {% asset_img tree_properties_1.jpg "Figure 1" "A tree "%} | {% asset_img tree_height_depth.png "Figure 2" "Tree height and depth "%} |
 
 
 ##### References ######
