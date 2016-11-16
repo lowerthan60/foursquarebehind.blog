@@ -50,7 +50,7 @@ For example, the Java collection classes **TreeSet** and **TreeMap** , the C++ S
 | $bh(x)$       | Black height of the node $x$;                     |
 | $n$           | Number of nodes in the tree;                      |
 | $n(x)$        | Number of the nodes of the node $x$;              |
-If tree height is $h$, then its $bh >= h/2$; (**_Why?_** -- _According to the 4<sub>th</sub> property above as each red node strictly requires black children_)
+If tree height is $h$, then its $bh >= h/2$; (**_Why?_** -- _According to the 4<sup>th</sup> property above as each red node strictly requires black children_)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 ### Theorem ### 
@@ -65,8 +65,8 @@ So to proof the original __theorem(or the proposition)__ is true, we only need t
 
 Starting from a node $x$ (not including the node) to reach a leaf node of any path, the number of black nodes is __black height__ of the node $x$, or $x$'s __black height__, that is $bh(x)$. There are two points as below regarding the $bh(x)$:
 
-**Point 1**: According to the 3<sub>rd</sub> **Red-Black Tree** properties "Every path from a node $x$ to a descendent leaf has the same number of black nodes (**_not counting node $x$_**)", so the $bh(x)$ is unique of the node $x$!
-**Point 2**: According to the 4<sub>th</sub> **Red-Black Tree** properties, "Both children of a red node must be black nodes", we can say starting from the node x to leaf node, the number of black nodes >= the number the red nodes, which means $bh(x) >= h(x)/2$. Assuming that $x$ is the root node, we can come to the conclusion that $bh >= h/2$. 
+**Point 1**: According to the 3<sup>rd</sup> **Red-Black Tree** properties "Every path from a node $x$ to a descendent leaf has the same number of black nodes (**_not counting node $x$_**)", so the $bh(x)$ is unique of the node $x$!
+**Point 2**: According to the 4<sup>th</sup> **Red-Black Tree** properties, "Both children of a red node must be black nodes", we can say starting from the node x to leaf node, the number of black nodes >= the number the red nodes, which means $bh(x) >= h(x)/2$. Assuming that $x$ is the root node, we can come to the conclusion that $bh >= h/2$. 
 
 Thus, according to the above two points, we conclude that to proof $n >= 2^{h/2} - 1$, we just need to proof $n >= 2^{bh} - 1$, which means the **Red-Black Tree** with height $h$ should contain at least ($2^{bh} - 1$) internal nodes.
 
