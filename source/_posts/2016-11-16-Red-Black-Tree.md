@@ -50,7 +50,7 @@ For example, the Java collection classes **TreeSet** and **TreeMap** , the C++ S
 | $bh(x)$       | Black height of the node $x$;                     |
 | $n$           | Number of nodes in the tree;                      |
 | $n(x)$        | Number of the nodes of the node $x$;              |
-If tree height is $h$, then its $bh >= h/2$; (**_Why?_** -- _According to the 3<sub>rd</sub> property above as each red node strictly requires black children_)
+If tree height is $h$, then its $bh >= h/2$; (**_Why?_** -- _According to the 4<sub>th</sub> property above as each red node strictly requires black children_)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 ### Theorem ### 
