@@ -6,7 +6,7 @@ tags:
 - GitHub
 ---
 
-###安装Hexo###
+### 安装Hexo ###
 ```
 cd d:/hexo
 npm install hexo-cli -g
@@ -28,7 +28,7 @@ hexo new "postName" #新建文章
 hexo new page "pageName" #新建页面
 ```
 
-###常用简写###
+### 常用简写 ###
 ```
 hexo n == hexo new
 hexo g == hexo generate
@@ -36,7 +36,7 @@ hexo s == hexo server
 hexo d == hexo deploy
 ```
 
-###常用组合###
+### 常用组合 ###
 ```
 hexo d -g #生成部署
 hexo s -g #生成预览
@@ -44,7 +44,7 @@ hexo s -g #生成预览
 
 
 
-###使用git命令行部署###
+### 使用git命令行部署 ###
 
 clone github repo
 ```

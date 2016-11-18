@@ -97,3 +97,60 @@ to
 **Conclusion**: 
 A **Red-Black Tree** with $n$ internal nodes has height $h<=2 * log_2(n + 1)$, which means the time complexity is $O(log_2(n))$
 
+**Corollary**:
+All operations of a **Red-Black Tree** take $O(log_2(n))$ time complexity, e.g. Minimum(), Maximum(), Successor(), Predecessor(), Search();
+Insert() and Delete() will also take $O(log_2(n))$ time complexity, but will need special care since they modify the tree;
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+### Structure ###
+Every node of **Red-Black Tree** has $5$ attributes:
+
+```c
+struct t_red_black_node {
+    enum { 
+        red, black 
+    } color;
+    void *key;
+    struct t_red_black_node *left;
+    struct t_red_black_node *right;
+    struct t_red_black_node *parent;
+	void *value;
+	int numLeft;      //optional
+	int numRight;     //optional
+}
+```
+
+A **Red-Black Tree** node has 6 mandatory instance variables, which are color，key，left，right，parent and value. For the pointers left, right and parent, these values are assigned to nil when a node is instantiated. 
+Of course we can add more variables like the count of its children nodes according to the requirements.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+### Operations and Rotations ###
+How does **inserting** or **deleting** nodes affect a **Red-Black Tree**? To ensure that its color scheme and properties don’t get thrown off, we can recolor or rotate the tree, that is modify the color or the structure of the corresponding nodes, to ensure after the tree modifying operations like **inserting** or **deleting**, the **Red-Black Tree** is continue to keep the its properties and balance.
+
+**Rotation** is a binary operation, between a parent node and one of its children, that swaps nodes and modifies their pointers while preserving the inorder traversal of the tree (so that elements are still sorted).
+
+There are two types of rotations: **left rotation** and **right rotation**. 
+**Left rotation** swaps the parent node with its right child, 
+**Right rotation** swaps the parent node with its left child. 
+
+| **Left rotation**                                           | &nbsp; |**Right rotation**                                            |
+| :---:                                                       | ---    | :---:                                                        |
+| {% asset_img rbt_left_rotation_1.jpg " " "Left rotation" %} | &nbsp; |{% asset_img rbt_right_rotation_1.jpg " " "Right rotation" %} |
+
+
+Here are the steps involved in for left rotation (for right rotations just change “left” to “right” below):
+
+LEFT-ROTATE(T, x)  
+ y ← right[x]            // 前提：这里假设x的右孩子为y。下面开始正式操作
+ right[x] ← left[y]      // 将 “y的左孩子” 设为 “x的右孩子”，即 将β设为x的右孩子
+ p[left[y]] ← x          // 将 “x” 设为 “y的左孩子的父亲”，即 将β的父亲设为x
+ p[y] ← p[x]             // 将 “x的父亲” 设为 “y的父亲”
+ if p[x] = nil[T]       
+ then root[T] ← y                 // 情况1：如果 “x的父亲” 是空节点，则将y设为根节点
+ else if x = left[p[x]]  
+           then left[p[x]] ← y    // 情况2：如果 x是它父节点的左孩子，则将y设为“x的父节点的左孩子”
+           else right[p[x]] ← y   // 情况3：(x是它父节点的右孩子) 将y设为“x的父节点的右孩子”
+ left[y] ← x             // 将 “x” 设为 “y的左孩子”
+ p[x] ← y                // 将 “x的父节点” 设为 “y”
