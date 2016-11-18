@@ -142,15 +142,25 @@ There are two types of rotations: **left rotation** and **right rotation**.
 
 Here are the steps involved in for left rotation (for right rotations just change “left” to “right” below):
 
-LEFT-ROTATE(T, x)  
- y ← right[x]            // 前提：这里假设x的右孩子为y。下面开始正式操作
- right[x] ← left[y]      // 将 “y的左孩子” 设为 “x的右孩子”，即 将β设为x的右孩子
- p[left[y]] ← x          // 将 “x” 设为 “y的左孩子的父亲”，即 将β的父亲设为x
- p[y] ← p[x]             // 将 “x的父亲” 设为 “y的父亲”
- if p[x] = nil[T]       
- then root[T] ← y                 // 情况1：如果 “x的父亲” 是空节点，则将y设为根节点
- else if x = left[p[x]]  
-           then left[p[x]] ← y    // 情况2：如果 x是它父节点的左孩子，则将y设为“x的父节点的左孩子”
-           else right[p[x]] ← y   // 情况3：(x是它父节点的右孩子) 将y设为“x的父节点的右孩子”
- left[y] ← x             // 将 “x” 设为 “y的左孩子”
- p[x] ← y                // 将 “x的父节点” 设为 “y”
+When do the left rotation on a **pivot**, assume its right child is not **NIL[T]**. **pivot** is a left child of any nodes but not **NIL[T]**
+**Left rotation** is based on the axis between the **pivot** node and **Y** node, the steps are:
+1. Let node **Y** be the parent of the **pivot** node;
+2. Let the **pivot** node be the left child of node **Y**;
+3. Let the left child of node **Y** be the rigth child of the **pivot** node;
+
+The pesudo code for **left rotation** is below(use **X** as the **pivot** node which is mentioned above):
+
+```
+LEFT-ROTATE(T, X)  
+ Y ← right[X]            
+ right[X] ← left[Y]      // Turn Y's left subtree into X's right subtree;
+ p[left[Y]] ← X          // Set X as the parent of Y's left child;
+ p[Y] ← p[X]             // Link X's parent to Y;
+ if p[X] = nil[T]       
+ then root[T] ← Y        // case 1： first see whether we're at the root ;
+ else if X = left[p[X]]  
+ then left[p[X]] ← Y     // case 2： X was on the left of its parent;
+ else right[p[X]] ← Y    // case 3: X must have been on the right, so set Y as the right child of X's parent;
+ left[Y] ← X             // set X as Y's left child;
+ p[X] ← Y                // set Y as X's parent;
+```
