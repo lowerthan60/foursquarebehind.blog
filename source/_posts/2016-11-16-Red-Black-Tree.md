@@ -156,11 +156,29 @@ LEFT-ROTATE(T, X)
  right[X] ← left[Y]      // Turn Y's left subtree into X's right subtree;
  p[left[Y]] ← X          // Set X as the parent of Y's left child;
  p[Y] ← p[X]             // Link X's parent to Y;
- if p[X] = nil[T]       
- then root[T] ← Y        // case 1： first see whether we're at the root ;
+ if p[X] = nil[T]        // Means X is root, so its parent is nil
+ then root[T] ← Y        // Case 1： first see whether we're at the root ;
  else if X = left[p[X]]  
- then left[p[X]] ← Y     // case 2： X was on the left of its parent;
- else right[p[X]] ← Y    // case 3: X must have been on the right, so set Y as the right child of X's parent;
- left[Y] ← X             // set X as Y's left child;
- p[X] ← Y                // set Y as X's parent;
+ then left[p[X]] ← Y     // Case 2： X was on the left of its parent;
+ else right[p[X]] ← Y    // Case 3: X must have been on the right, so set Y as the right child of X's parent;
+ left[Y] ← X             // Set X as Y's left child;
+ p[X] ← Y                // Set Y as X's parent;
+```
+
+
+The pesudo code for **right rotation** is below(use **X** as the **pivot** node which is mentioned above):
+
+```
+RIGHT-ROTATE(T, X)  
+ Y ← left[X]            
+ left[X] ← right[Y]      // * The differences aginst LEFT-ROTATE
+ p[right[Y]] ← X         // * The differences aginst LEFT-ROTATE
+ p[Y] ← p[X]             
+ if p[X] = nil[T]        
+ then root[T] ← Y        
+ else if X = left[p[X]]  
+ then left[p[X]] ← Y     
+ else right[p[X]] ← Y    
+ right[Y] ← X            // * The differences aginst LEFT-ROTATE 
+ p[X] ← Y                
 ```
