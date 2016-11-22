@@ -131,27 +131,32 @@ How does **inserting** or **deleting** nodes affect a **Red-Black Tree**? To ens
 
 **Rotation** is a binary operation, between a parent node and one of its children, that swaps nodes and modifies their pointers while preserving the inorder traversal of the tree (so that elements are still sorted).
 
-There are two types of rotations: **left rotation** and **right rotation**. 
-**Left rotation** swaps the parent node with its right child, 
-**Right rotation** swaps the parent node with its left child. 
+There are two types of rotations: **Left Rotation** and **Right Rotation**. 
+**Left Rotation** swaps the parent node with its right child, 
+**Right Rotation** swaps the parent node with its left child. 
 
-| **Left rotation**                                           | &nbsp; |**Right rotation**                                            |
+| **Left Rotation**                                           | &nbsp; |**Right Rotation**                                            |
 | :---:                                                       | ---    | :---:                                                        |
-| {% asset_img rbt_left_rotation_1.jpg " " "Left rotation" %} | &nbsp; |{% asset_img rbt_right_rotation_1.jpg " " "Right rotation" %} |
+| {% asset_img rbt_left_rotation_1.jpg " " "Left Rotation" %} | &nbsp; |{% asset_img rbt_right_rotation_1.jpg " " "Right Rotation" %} |
 
 
-Here are the steps involved in for left rotation (for right rotations just change “left” to “right” below):
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
-When do the left rotation on a **pivot**, assume its right child is not **NIL[T]**. **pivot** is a left child of any nodes but not **NIL[T]**
-**Left rotation** is based on the axis between the **pivot** node and **Y** node, the steps are:
+### Left Rotation ###
+
+Here are the steps involved in for **Left Rotation** (for **Right Rotation** just change "Left" to "Right" below):
+
+When do the **Left Rotation** on a **pivot**, assume its right child is not **NIL[T]**. **pivot** is a left child of any nodes but not **NIL[T]**
+**Left Rotation** is based on the axis between the **pivot** node and **Y** node, the steps are:
 1. Let node **Y** be the parent of the **pivot** node;
 2. Let the **pivot** node be the left child of node **Y**;
 3. Let the left child of node **Y** be the rigth child of the **pivot** node;
 
-The pesudo code for **left rotation** is below(use **X** as the **pivot** node which is mentioned above):
+
+The pesudo code for **Left Rotation** is below(use **X** as the **pivot** node which is mentioned above):
 
 ```
-LEFT-ROTATE(T, X)  
+LEFT-ROTATE(T, X)  		 // T: tree, X: pivot node
  Y ← right[X]            
  right[X] ← left[Y]      // Turn Y's left subtree into X's right subtree;
  p[left[Y]] ← X          // Set X as the parent of Y's left child;
@@ -165,11 +170,18 @@ LEFT-ROTATE(T, X)
  p[X] ← Y                // Set Y as X's parent;
 ```
 
+So as the figure below, **Left Rotation** on node **X** means make node **X**'s right child as node **X**'s parent node, that is make node **X** as a left child node (node **X** becomes the left child of node **Z**)!
+So **Left** means the **Rotated** node will be turned to a left child node.
+{% asset_img rbt_left_rotation_example_1.png " " "Left Rotation" %} 
 
-The pesudo code for **right rotation** is below(use **X** as the **pivot** node which is mentioned above):
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Right Rotation ###
+
+The pesudo code for **Right Rotation** is below(use **X** as the **pivot** node which is mentioned above):
 
 ```
-RIGHT-ROTATE(T, X)  
+RIGHT-ROTATE(T, X)       // T: tree, X: pivot node
  Y ← left[X]            
  left[X] ← right[Y]      // * The differences aginst LEFT-ROTATE
  p[right[Y]] ← X         // * The differences aginst LEFT-ROTATE
@@ -182,3 +194,8 @@ RIGHT-ROTATE(T, X)
  right[Y] ← X            // * The differences aginst LEFT-ROTATE 
  p[X] ← Y                
 ```
+
+So as the figure below, **Reft Rotation** on node **X** means make node **X**'s left child as node **X**'s parent node, that is make node **X** as a right child node (node **X** becomes the right child of node **Y**)!
+So **Right** means the **Rotated** node will be turned to a right child node.
+{% asset_img rbt_right_rotation_example_1.png " " "Right Rotation" %} 
+
