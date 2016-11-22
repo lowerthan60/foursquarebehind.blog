@@ -6,7 +6,7 @@ tags:
 - Tree
 ---
 
-### Preface ###
+# Preface #
 
 ##### BST(Binary Search Tree) Retrieval #####
 
@@ -19,7 +19,7 @@ The problem with **BST** is that, depending on the order of inserting elements i
 To solve this problem many variations of **BST** exist. Of these variations, **Red-Black tree provides a well-balanced **BST** that guarantees a logarithmic bound on primitive operations**.  
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-### Introduction ###
+# Introduction #
 **Red-Black Tree**, an evolution of **BST** that aim to **keep the tree balanced without affecting the complexity of the primitive operations**. This is done by coloring each node in the tree with either red or black and preserving a set of properties that guarantee that **the deepest path in the tree is not longer than twice the shortest one**.
 
 ### Properties ###
@@ -37,7 +37,7 @@ To solve this problem many variations of **BST** exist. Of these variations, **R
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-### Application of Red-Black Tree ###
+# Application of Red-Black Tree #
 **Red-Black Tree** is used widely, it is mainly used to store sorted/ordered data, its time complexity is $O(log_2(n))$ which has high efficiency. 
 For example, the Java collection classes **TreeSet** and **TreeMap** , the C++ STL classes **set**, **map**, and Linux virtual memory management, all of these are based on **Red-Black Tree**.
 
@@ -53,11 +53,11 @@ For example, the Java collection classes **TreeSet** and **TreeMap** , the C++ S
 If tree height is $h$, then its $bh >= h/2$; (**_Why?_** -- _According to the 4<sup>th</sup> property above as each red node strictly requires black children_)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-### Theorem ### 
+# Theorem #
 A **Red-Black Tree** with $n$ internal nodes has height $h<=2 * log_2(n + 1)$, which means the time complexity is $O(log_2(n))$
 
 
-### Proof by induction ###
+# Proof by induction #
 
 **Proof:** A __Red-Black Tree__ with $n$ internal nodes has height $h<=2 * log_2(n + 1)$. 
 The __contrapositive__ is "the height $h$ of the __Red-Black Tree__ has at least $2^{h/2} – 1$ internal nodes". That is $n >= 2^{h/2} - 1$.
@@ -103,7 +103,7 @@ Insert() and Delete() will also take $O(log_2(n))$ time complexity, but will nee
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-### Structure ###
+# Structure #
 Every node of **Red-Black Tree** has $5$ attributes:
 
 ```c
@@ -126,7 +126,7 @@ Of course we can add more variables like the count of its children nodes accordi
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
-### Operations and Rotations ###
+# Rotations #
 How does **inserting** or **deleting** nodes affect a **Red-Black Tree**? To ensure that its color scheme and properties don’t get thrown off, we can recolor or rotate the tree, that is modify the color or the structure of the corresponding nodes, to ensure after the tree modifying operations like **inserting** or **deleting**, the **Red-Black Tree** is continue to keep the its properties and balance.
 
 **Rotation** is a binary operation, between a parent node and one of its children, that swaps nodes and modifies their pointers while preserving the inorder traversal of the tree (so that elements are still sorted).
@@ -199,3 +199,24 @@ So as the figure below, **Reft Rotation** on node **X** means make node **X**'s 
 So **Right** means the **Rotated** node will be turned to a right child node.
 {% asset_img rbt_right_rotation_example_1.png " " "Right Rotation" %} 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# Operations #
+### Insertion ###
+
+| **An Example for Insertion**                                                                                                                               | &nbsp;                                                |
+| :---                                                                                                                                                       | ---:                                                  |
+| **Color this tree**                                                                                                                                        | {% asset_img rbt_insertion_1.jpg "Step 1" " " %}      | 
+| **Insert 8**<br/>Where does it go?<br/>What color shoult it be?                                                                                            | {% asset_img rbt_insertion_2.jpg "Step 2" " " %}      | 
+| **Insert 8**<br/>Color the inserted node as red                                                                                                            | {% asset_img rbt_insertion_3.jpg "Step 3" " " %}      | 
+| **Insert 11**<br/>Where does it go?<br/>What color shoult it be?<br/>Can't be red!(break rule #4)<br/>Can't be black!(break rule #3)                       | {% asset_img rbt_insertion_4.jpg "Step 4" " " %}      | 
+| **Insert 11**<br/>Where does it go?<br/>Solution: recolor the tree                                                                                         | {% asset_img rbt_insertion_5.jpg "Step 5" " " %}      | 
+| **Insert 10**<br/>Where does it go?<br/>What color shoult it be?<br/>                                                                                      | {% asset_img rbt_insertion_6.jpg "Step 6" " " %}      | 
+| **A**: no color! Tree is too imbalanced!<br/>Must change tree structure to allow recoloring<br/>**Goal**: Restructure tree in $O(log_2(n))$ time           | {% asset_img rbt_insertion_6.jpg "Step 6" " " %}      | 
+
+
+
+
+# References #
+http://www.cs.virginia.edu/~luebke/cs332.fall00/lecture10/index.htm
