@@ -129,7 +129,7 @@ Of course we can add more variables like the count of its children nodes accordi
 # Rotations #
 How does **inserting** or **deleting** nodes affect a **Red-Black Tree**? To ensure that its color scheme and properties don’t get thrown off, we can recolor or rotate the tree, that is modify the color or the structure of the corresponding nodes, to ensure after the tree modifying operations like **inserting** or **deleting**, the **Red-Black Tree** is continue to keep the its properties and balance.
 
-**Rotation** is a binary operation, between a parent node and one of its children, that swaps nodes and modifies their pointers while preserving the inorder traversal of the tree (so that elements are still sorted).
+**Rotation** is a basic operation for changing **Black-Red Tree** structure, it's a binary operation, between a parent node and one of its children, that swaps nodes and modifies their pointers while preserving the inorder traversal of the tree (so that elements are still sorted).
 
 There are two types of rotations: **Left Rotation** and **Right Rotation**. 
 **Left Rotation** swaps the parent node with its right child, 
@@ -201,6 +201,11 @@ So **Right** means the **Rotated** node will be turned to a right child node.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
+So **Left Rotation** and **Right Rotation** are a pair of **invertible** operations.
+{% asset_img rbt_invertible_rotation.png " " "Invertible Operations between Left/Right Rotation" %} 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 # Operations #
 ### Insertion ###
@@ -210,11 +215,21 @@ So **Right** means the **Rotated** node will be turned to a right child node.
 | **Color this tree**                                                                                                                                        | {% asset_img rbt_insertion_1.jpg "Step 1" " " %}      | 
 | **Insert 8**<br/>Where does it go?<br/>What color shoult it be?                                                                                            | {% asset_img rbt_insertion_2.jpg "Step 2" " " %}      | 
 | **Insert 8**<br/>Color the inserted node as red                                                                                                            | {% asset_img rbt_insertion_3.jpg "Step 3" " " %}      | 
-| **Insert 11**<br/>Where does it go?<br/>What color shoult it be?<br/>Can't be red!(break rule #4)<br/>Can't be black!(break rule #3)                       | {% asset_img rbt_insertion_4.jpg "Step 4" " " %}      | 
+| **Insert 11**<br/>Where does it go?<br/>What color shoult it be?<br/>Can't be red!(break property #4)<br/>Can't be black!(break property #3)               | {% asset_img rbt_insertion_4.jpg "Step 4" " " %}      | 
 | **Insert 11**<br/>Where does it go?<br/>Solution: recolor the tree                                                                                         | {% asset_img rbt_insertion_5.jpg "Step 5" " " %}      | 
 | **Insert 10**<br/>Where does it go?<br/>What color shoult it be?<br/>                                                                                      | {% asset_img rbt_insertion_6.jpg "Step 6" " " %}      | 
-| **A**: no color! Tree is too imbalanced!<br/>Must change tree structure to allow recoloring<br/>**Goal**: Restructure tree in $O(log_2(n))$ time           | {% asset_img rbt_insertion_6.jpg "Step 6" " " %}      | 
+| **Answer**: no color! Tree is too imbalanced!<br/>Must change tree structure to allow recoloring<br/>**Goal**: Restructure tree in $O(log_2(n))$ time      | {% asset_img rbt_insertion_6.jpg "Step 6" " " %}      | 
 
+Based on the above example, the **Red-Black Tree Insertion operation** is to do a regular BST insertion, then do the operations (recolor or rotate) to make the new tree satisfy with all of the **Red-Black Tree** properties.
+A special case is required for an empty tree. If the tree is empty, replace it with a single black node containing the inserted value. This ensures that the root property is satisfied.
+
+So assume we are trying to insert one new node **X** to **T** (a nonempty **Red-Black Tree**)
+
+| **Insertion steps**:  | &nbsp;                                                                                                    |
+| :---                  | :---                                                                                                      |
+| **Step 1**:           | Use the BST insert algorithm to insert **X** to **T** (**_Note: every insertion take places at a leaf)_** |
+| **Step 2**:           | Color the node **X** red                                                                                  |
+| **Step 3**:           | Restore **Red-Black Tree** properties by **recolor** or **rotate** operations (if necessary)              |
 
 
 
