@@ -234,11 +234,11 @@ A special case is required for an empty tree. If the tree is empty, replace it w
 
 So assume we are trying to insert one new node **x** to **T** (a nonempty **Red-Black Tree**)
 
-| **Insertion steps**:  | &nbsp;                                                                                                       |
+| **Steps**:  | &nbsp;                                                                                                       |
 | :---                  | :---                                                                                                         |
-| **Step 1**:           | Use the BST insert algorithm to insert **x** to **T** (**_Note: every insertion take places at a leaf)_**    |
-| **Step 2**:           | Color the node **x** **RED**                                                                                 |
-| **Step 3**:           | Restore **Red-Black Tree** [properties](#Properties) by **recolor** or **rotate** operations (if necessary)  |
+| **1**:           | Use the BST insert algorithm to insert **x** to **T** (**_Note: every insertion take places at a leaf)_**    |
+| **2**:           | Color the node **x** **RED**                                                                                 |
+| **3**:           | Restore **Red-Black Tree** [properties](#Properties) by **recolor** or **rotate** operations (if necessary)  |
 
 
 | &nbsp;            | &nbsp;                                                            |
@@ -291,8 +291,8 @@ Node *RB_Insert(Node *Root,Node * z) {
   else                              // Case 3: if z >= y, then set z as y's right child
     y->right = z;  
   
-  z->left = T_NIL;                  // Set node z's left child as nil
-  z->right = T_NIL;                 // Set node z's right child as nil. So far done with BST insertion for the new node z
+  z->left = T_NIL;                  // Set z's left child as nil
+  z->right = T_NIL;                 // Set z's right child as nil. So far done with BST insertion for the new node z
   z->color = RED;                   // Color z as RED
   Root = RB_Insert_Fixup(Root,z);   // Reconstruct(recolor or rotate) T via function RB_Insert_Fixup to meet all of the **Red-Black Tree** properties
   return Root;   
@@ -387,8 +387,11 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 | **A**:  | _Because the **Black-Height** of **z**'s **parent** subtree increased by 1, means the **Black-Height** of **z**'s **grampa** substree increased_ |
 | &nbsp;  | _by 1 as well, so recolor **grampa** from **BLACK** to **RED** to resolve the problem that the **Black-Height** of **grampa** subtree increased_ |
 | &nbsp;  | _by 1, but it will introduce another problem that the **Black-Height** of **uncle** subtree decreased by 1, because in this case **uncle** is **RED**, so recolor **uncle** from **RED** to **BLACK** can resolve this problem._ |
-| &nbsp;  | _So now all of the problems got resolved! We got a new **Red-Black Tree**!_ |
+| &nbsp;  | _According to the above steps: node **z**, **z**'s **parent** and **uncle** will not violate the **Red-Black Tree** [property](#Properties), but **z**'s **grampa** might violate!_ |
+| &nbsp;  | _If **z**'s **grampa** is root, then color **z**'s grampa as **BLACK** will resolve the problem completely._ |
+| &nbsp;  | _If **z**'s **grampa** is not root, then point the current node (pointer) to **z**'s **grampa** as the **"new" current node**, then analyzes the **"new" current node**_ |
 
+{% asset_img rbt_insertion_case_1.jpg "Red-Black Tree Intertion Case 1" " " %} 
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -396,3 +399,5 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 # References #
 http://www.cs.virginia.edu/~luebke/cs332.fall00/lecture10/index.htm
 http://pages.cs.wisc.edu/~paton/readings/Red-Black-Trees/
+https://www.cs.auckland.ac.nz/software/AlgAnim/red_black.html
+https://www.cs.auckland.ac.nz/software/AlgAnim/red_black_op.html
