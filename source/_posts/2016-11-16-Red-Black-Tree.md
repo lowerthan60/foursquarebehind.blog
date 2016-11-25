@@ -360,17 +360,17 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 | &nbsp;                                     | &nbsp;---&nbsp; | According to **z**'s uncle's state, we will have another **3 sub-cases** as below: |
 
 
-| **Case** |  &nbsp;                               | &nbsp; |
-| :---     | :---                                                    | :---   |
-| **3.1**: | **z**'s **parent** is **RED**, **z**'s uncle is **RED** | (01) color **z**'s **parent** as **BLACK**                                       |
-| &nbsp;   | &nbsp;                                                  | (02) color **z**'s uncle as **BLACK**                                        |
-| &nbsp;   | &nbsp;                                                  | (03) color **z**'s grampa as **RED**                                         |
-| &nbsp;   | &nbsp;                                                  | (04) point **z** to **z**'s grampa, then keep the processing iteratively |
-| **3.2**: | **z**'s **parent** is **RED**, **z**'s uncle is **BLACK**,      | (01) point **z** to **z**'s **parent**                                       |
-| &nbsp;   | and **z** is the **right child** of **z**'s **parent**  | (02) **LEFT-ROTATE** on **z**                                            |
-| **3.3**: | **z**'s **parent** is **RED**, **z**'s uncle is **BLACK**,      | (01) color **z**'s **parent** as **BLACK**                                       |
-| &nbsp;   | and **z** is the **left child** of **z**'s **parent**   | (02) color **z**'s grampa as **RED**                                         |
-| &nbsp;   | &nbsp;                                                  | (03) **RIGHT-ROTATE** on **z**'s grampa                                  |
+| **Case** |  &nbsp;                                                         | &nbsp; |
+| :---     | :---                                                            | :---   |
+| **3.1**: | **z**'s **parent** is **RED**, **z**'s uncle is **RED**         | (01) color **z**'s **parent** as **BLACK**                               |
+| &nbsp;   | &nbsp;                                                          | (02) color **z**'s uncle as **BLACK**                                    |
+| &nbsp;   | &nbsp;                                                          | (03) color **z**'s grampa as **RED**                                     |
+| &nbsp;   | &nbsp;                                                          | (04) point **z** to **z**'s grampa, then keep the processing iteratively |
+| **3.2**: | **z**'s **parent** is **RED**, **z**'s uncle is **BLACK**,      | (01) point **z** to **z**'s **parent**                                   |
+| &nbsp;   | and **z** is the **right child** of **z**'s **parent**  		 | (02) **LEFT-ROTATE** on **z**                                            |
+| **3.3**: | **z**'s **parent** is **RED**, **z**'s uncle is **BLACK**,      | (01) color **z**'s **parent** as **BLACK**                               |
+| &nbsp;   | and **z** is the **left child** of **z**'s **parent**           | (02) color **z**'s grampa as **RED**                                     |
+| &nbsp;   | &nbsp;                                                          | (03) **RIGHT-ROTATE** on **z**'s grampa                                  |
 
 **_The core idea about the 3 Sub-Cases above is : "Move the RED node to root, then color the root as BLACK"_**
 
@@ -393,8 +393,16 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 
 {% asset_img rbt_insertion_case_1.jpg "Red-Black Tree Intertion Case 1" " " %} 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+{% asset_img rbt_insertion_case_1_full.jpg "Red-Black Tree Intertion Case 1 another example" " " %} 
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
+
+| **Why** |  &nbsp;                                |
+| :---    | :---                                   |
+| **3.2** | **z** and **z**'s **parent** are **RED**, it breaks [property](#Properties) #4, so color **z**'s **parent** as **BLACK** to resolve this problem. |
 
 # References #
 http://www.cs.virginia.edu/~luebke/cs332.fall00/lecture10/index.htm
