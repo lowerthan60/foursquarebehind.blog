@@ -349,6 +349,8 @@ Node* RB_Insert_Fixup(Node *T,Node *z)  {
 }  
 ```
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
 According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black Tree** and then color **z** as **RED**, there will be 3 cases to deal with:
 
 | **Case**                                   | &nbsp;          | &nbsp; |
@@ -360,7 +362,7 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 | &nbsp;                                     | &nbsp;---&nbsp; | According to **z**'s uncle's state, we will have another **3 sub-cases** as below: |
 
 
-| **Case** |  &nbsp;                                                         | &nbsp; |
+| **Case** | &nbsp;                                                          | &nbsp; |
 | :---     | :---                                                            | :---   |
 | **3.1**: | **z**'s **parent** is **RED**, **z**'s uncle is **RED**         | (01) color **z**'s **parent** as **BLACK**                               |
 | &nbsp;   | &nbsp;                                                          | (02) color **z**'s uncle as **BLACK**                                    |
@@ -375,9 +377,9 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 **_The core idea about the 3 Sub-Cases above is : "Move the RED node to root, then color the root as BLACK"_**
 
 
-| **Why** |  &nbsp;                                |
-| :---    | :---                                   |
-| **3.1** | **z** and **z**'s **parent** are **RED**, it breaks [property](#Properties) #4, so color **z**'s **parent** as **BLACK** to resolve this problem. |
+| **3.1** | **z**'s **parent** is **RED**, **z**'s uncle is **RED** |
+| :---    | :---                                                    |
+| &nbsp;  | **z** and **z**'s **parent** are **RED**, it breaks [property](#Properties) #4, so color **z**'s **parent** as **BLACK** to resolve this problem. |
 | **Q**:  | In this situation, **z** must have a **BLACK grampa**! **Why?** |
 | **A**:  | _Check **[property](#Properties) #4 and #5!**_ |
 | &nbsp;  | But when recolor **z**'s **parent** from **RED** to **BLACK**, [property](#Properties) #3 is broken, because the **Black-Height** of the subtree where **z**'s **parent** exists increased by 1. |
@@ -400,9 +402,17 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-| **Why** |  &nbsp;                                |
-| :---    | :---                                   |
-| **3.2** | **z** and **z**'s **parent** are **RED**, it breaks [property](#Properties) #4, so color **z**'s **parent** as **BLACK** to resolve this problem. |
+| **3.2** | **z**'s **parent** is **RED**, **z**'s uncle is **BLACK**, and **z** is the **right child** of **z**'s **parent**        |
+| :---    | :---                                                                                                                     |
+| &nbsp;  | point **z** to **z**'s **parent**, then **LEFT-ROTATE** on **z**                                                         |
+| **Q**:  | **Why point z to z's parent?**                                                                                           |
+| **A**:  | _Becase the new node will be always inserted as the leaf, so we should keep processing on the subtree ascend to the root to ensure satisfy with all of the **Red-Black Tree** [property](#Properties)_ |
+| **Q**:  | **Why LEFT-ROTATE on z?**                                                                                                |
+| **A**:  | _The core idea of **Red-Black Tree** is "**Move the RED node to root, then color the RED node to BLACK**"". Further more, because **z** is the **right child**, so we need **LEFT-ROTATE** to move **z** up!_ |
+
+
+
+
 
 # References #
 http://www.cs.virginia.edu/~luebke/cs332.fall00/lecture10/index.htm
