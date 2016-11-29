@@ -377,9 +377,9 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 **_The core idea about the 3 Sub-Cases above is : "Move the RED node to root, then color the root as BLACK"_**
 
 
-| **3.1** | **z**'s **parent** is **RED**, **z**'s uncle is **RED** |
+| **3.1** | &nbsp;&nbsp;**z**'s **parent** is **RED**, **z**'s uncle is **RED** |
 | :---    | :---                                                    |
-| &nbsp;  | **z** and **z**'s **parent** are **RED**, it breaks [property](#Properties) #4, so color **z**'s **parent** as **BLACK** to resolve this problem. |
+| &nbsp;  | &nbsp;&nbsp;**z** and **z**'s **parent** are **RED**, it breaks [property](#Properties) #4, so color **z**'s **parent** as **BLACK** to resolve this problem. |
 | **Q**:  | In this situation, **z** must have a **BLACK grampa**! **Why?** |
 | **A**:  | _Check **[property](#Properties) #4 and #5!**_ |
 | &nbsp;  | But when recolor **z**'s **parent** from **RED** to **BLACK**, [property](#Properties) #3 is broken, because the **Black-Height** of the subtree where **z**'s **parent** exists increased by 1. |
@@ -399,17 +399,36 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 
 {% asset_img rbt_insertion_case_1_full.jpg "Red-Black Tree Intertion Case 1 another example" " " %} 
 
-
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-| **3.2** | **z**'s **parent** is **RED**, **z**'s uncle is **BLACK**, and **z** is the **right child** of **z**'s **parent**        |
-| :---    | :---                                                                                                                     |
-| &nbsp;  | point **z** to **z**'s **parent**, then **LEFT-ROTATE** on **z**                                                         |
-| **Q**:  | **Why point z to z's parent?**                                                                                           |
+| **3.2** | &nbsp;&nbsp;**z**'s **parent** is **RED**, **z**'s uncle is **BLACK**, and **z** is the **right child** of **z**'s **parent**        |
+| :---    | :---                                                                                                                                 |
+| &nbsp;  | &nbsp;&nbsp;point **z** to **z**'s **parent**, then **LEFT-ROTATE** on **z**                                                         |
+| **Q**:  | **Why point z to z's parent?**                                                                                                       |
 | **A**:  | _Becase the new node will be always inserted as the leaf, so we should keep processing on the subtree ascend to the root to ensure satisfy with all of the **Red-Black Tree** [property](#Properties)_ |
 | **Q**:  | **Why LEFT-ROTATE on z?**                                                                                                |
 | **A**:  | _The core idea of **Red-Black Tree** is "**Move the RED node to root, then color the RED node to BLACK**"". Further more, because **z** is the **right child**, so we need **LEFT-ROTATE** to move **z** up!_ |
 
+
+{% asset_img rbt_insertion_case_2.jpg "Red-Black Tree Intertion Case 2" " " %} 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+{% asset_img rbt_insertion_case_2_full.jpg "Red-Black Tree Intertion Case 2 another example" " " %} 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+| **3.3** | &nbsp;&nbsp;**z**'s **parent** is **RED**, **z**'s uncle is **BLACK**, and **z** is the **left child** of **z**'s **parent**            |
+| :---    | :---                                                                                                                                    |
+| &nbsp;  | &nbsp;&nbsp;recolor **z**'s **parent** as **BLACK**, recolor **z**'s **grampa** as **RED**, then **RIGHT-ROTATE** on **z**'s **grampa** |
+| **Q**:  | **Why recolor z and z's parent?** |
+| **A**:  | _Both of the current node **z** and **z**'s parent are **RED**, it breaks [property](#Properties) #4, so recolor **z**'s parent as **BLACK** to resolve this issue._ |
+| &nbsp;  | _After above step, [property](#Properties) #3 is broken, because the **Black-Height** of the subtree where **z**'s **parent** exists increased by 1__  |
+| &nbsp;  | _To resolve this problem, we need to recolor **z**'s **grampa** from **BLACK** to **RED**, and then do **RIGHT-ROTATE** on **z**'s **grampa**._  |
+
+{% asset_img rbt_insertion_case_3_full.jpg "Red-Black Tree Intertion Case 3 another example" " " %} 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
