@@ -223,3 +223,7 @@ http://www.cs.virginia.edu/~luebke/cs332.fall00/lecture10/index.htm
 http://pages.cs.wisc.edu/~paton/readings/Red-Black-Trees/
 https://www.cs.auckland.ac.nz/software/AlgAnim/red_black.html
 https://www.cs.auckland.ac.nz/software/AlgAnim/red_black_op.html
+https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.01.md
+https://www.cs.duke.edu/~reif/courses/alglectures/skiena.lectures/lecture10.pdf
+http://www.cnblogs.com/skywang12345/p/3245399.html
+http://blog.csdn.net/luoshixian099/article/details/45786665

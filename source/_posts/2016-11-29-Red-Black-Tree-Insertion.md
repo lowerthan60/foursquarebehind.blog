@@ -221,11 +221,11 @@ According to **z**'s **parent**'s state, when we insert **z** into a **Red-Black
 
 | **Steps** | **A Complete Red-Black Tree Insertion Process*               |
 | :---      | :---                                                         |
-| &nbsp     | {% asset_img rbt_insertion_complete_1.png "Step 1" " " %}        |
-| &nbsp     | {% asset_img rbt_insertion_complete_2.png "Step 2" " " %}        |
-| &nbsp     | {% asset_img rbt_insertion_complete_3.png "Step 3" " " %}        |
-| &nbsp     | {% asset_img rbt_insertion_complete_4.png "Step 4" " " %}        |
-| &nbsp     | {% asset_img rbt_insertion_complete_5.png "Step 5" " " %}        |
-| &nbsp     | {% asset_img rbt_insertion_complete_6.png "Step 6" " " %}        |
-| &nbsp     | {% asset_img rbt_insertion_complete_7.png "Step 7" " " %}        |
-| &nbsp     | {% asset_img rbt_insertion_complete_8.png "Step 8" " " %}        |
+| The original **Red-Black Tree**                                                       | {% asset_img rbt_insertion_complete_1.png "Step 1" " " %}        |
+| Insert node **32** into the tree.<br/>This is no longer a **Red-Black Tree**<br/>because there are two successive **RED** nodes<br/>on the path 57-29-43-37-32.<br/>Mark the new node **32** as **x**, and it's **uncle** as **y**<br/>**y** is **RED**, so we have **case 1**                                       | {% asset_img rbt_insertion_complete_2.png "Step 2" " " %} |
+| Recolor the nodes **37, 43, 51**                                                      | {% asset_img rbt_insertion_complete_3.png "Step 3" " " %}        |
+| Move **x** up to its **grampa (43)**.<br/>**x**'s **parent 29** is still **RED**,<br/>so this isn't a **Red-Black Tree** yet.<br/> Mark the uncle **y**.<br/>In this case, the **uncle** is **BLACK**,<br/>so we have the **case 2**.                                                                                    | {% asset_img rbt_insertion_complete_4.png "Step 4" " " %}        |
+| Move **x** up again and do **LEFT-ROTATE** on **x**.                                  | {% asset_img rbt_insertion_complete_5.png "Step 5" " " %}        |
+| Still not a **Red-Black Tree**.                                                       | {% asset_img rbt_insertion_complete_6.png "Step 6" " " %}        |
+| Recolor nodes **43** and **57**,<br/>**RIGHT-ROTATE** on **57**.                      | {% asset_img rbt_insertion_complete_7.png "Step 7" " " %}        |
+| This is now a **Red-Black Tree**!<br/>$O(log_n)$ time!                                | {% asset_img rbt_insertion_complete_8.png "Step 8" " " %}        |
