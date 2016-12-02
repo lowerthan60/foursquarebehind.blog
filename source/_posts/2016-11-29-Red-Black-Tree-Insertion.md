@@ -6,6 +6,16 @@ tags:
 - Tree
 ---
 
+<a name="Properties"></a>
+# Red-Black Tree Properties #
+1. Every node is colored with either **RED** or **BLACK**;
+2. All leaf (NULL Pointer) nodes are colored with **BLACK**; 
+	**Note:** _If a node’s child is missing then we will assume that it has a nil child(NULL Pointer) in that place and this nil child(NULL Pointer) is always colored **BLACK**._
+3. Every path from a node $x$ to a descendent leaf has the same number of **BLACK** nodes (**_not counting node $x$_**). We call this number the **Black-Height** of node $x$, which is denoted by $bh(x)$;
+4. Both children of a **RED** node must be **BLACK** nodes;
+	**Note:** _So it's impossible to have 2 consecutive reds on a path, so it ensures that the deepest path in the tree is not longer than twice the shortest one. Thus, the **Red-Black Tree** is a relatively balanced binary tree._
+5. The root is always **BLACK**;
+
 # Insertion #
 
 | **An Example for Insertion**                                                                                                                                                             | &nbsp;                                           |
